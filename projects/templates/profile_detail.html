@@ -1,0 +1,47 @@
+<!-- events/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Detalhes dos Perfis</title>
+</head>
+
+
+<header class="header">
+  <nav class="nav">
+    <ul class="header-links">
+      <li>
+        <a>{{ profile.username }}</a>
+      </li>
+      <li>
+        <a>{{ profile.github }}</a>
+      </li>
+      <li>
+        <a>{{ profile.linkedin }}</a>
+      </li>
+  </nav>
+</header>
+
+<body>
+  <container>
+    <div>
+      <h1>Certificates</h1>
+      <ul>
+        {% for certificate in profile.certificate_set.all %}
+        <li>{{ certificate.name }} - {{ certificate.certifying_institution }} </li>
+        {{% endfor %}}
+      </ul>
+    </div>
+    <div>
+      <h1>About me</h1>
+      <p>{{ profile.bio }}</p>
+    </div>
+
+  </container>
+</body>
+
+</html>

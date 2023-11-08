@@ -27,11 +27,15 @@ from rest_framework_simplejwt.views import (
 from projects.views import (
     ProfilesListViewSet,
     ProjectsListViewSet,
+    CertifyingInstitutionViewSet,
+    CertificateViewSet,
 )
 
 router = routers.DefaultRouter()
 router.register(r"profiles", ProfilesListViewSet)
 router.register(r"projects", ProjectsListViewSet)
+router.register(r"certifying-institutions", CertifyingInstitutionViewSet)
+router.register(r"certificates", CertificateViewSet)
 
 
 urlpatterns = [

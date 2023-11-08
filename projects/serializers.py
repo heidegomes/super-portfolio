@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from projects.models import Profile, Project
+from projects.models import Profile, Project, CertifyingInstitution
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -11,12 +11,17 @@ class ProfileSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        # fields = [
-        #     "name",
-        #     "description",
-        #     "github_url",
-        #     "keyword",
-        #     "key_skill",
-        #     "profile",
-        # ]
         fields = "__all__"
+
+
+class CertifyingInstitutionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CertifyingInstitution
+        fields = "__all__"
+        many = True
+
+    def create(self, validated_data):
+        certifying_institution = CertifyingInstitution.objects.create(
+            **validated_data
+        )
+        return certifying_institution
