@@ -26,10 +26,12 @@ from rest_framework_simplejwt.views import (
 
 from projects.views import (
     ProfilesListViewSet,
+    ProjectsListViewSet,
 )
 
 router = routers.DefaultRouter()
 router.register(r"profiles", ProfilesListViewSet)
+router.register(r"projects", ProjectsListViewSet)
 
 
 urlpatterns = [
