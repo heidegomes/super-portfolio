@@ -22,7 +22,6 @@ def test_profile_post_request(auth_client, profile_seed):
 
 
 def test_profile_post_request_without_authentication(client, profile_seed):
-
     response = client.post(
         "/profiles/",
         {
@@ -92,18 +91,17 @@ def test_profile_delete_request(auth_client, profile_seed):
 
 
 def test_profile_delete_request_without_authentication(client, profile_seed):
-
     response = client.delete(f"/profiles/{profile_seed.id}/")
     assert response.status_code == 401
     assert Profile.objects.count() == 1
 
 
 def test_profile_template_without_authentication(client, profile_seed):
-
     response = client.get(f"/profiles/{profile_seed.id}/")
 
     assert response.status_code == 200
     assertTemplateUsed(response, "profile_detail.html")
+    print("#######", response)
     assertContains(response, profile_seed.name)
     assertContains(response, profile_seed.bio)
 

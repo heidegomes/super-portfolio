@@ -15,7 +15,7 @@
   <nav class="nav">
     <ul class="header-links">
       <li>
-        <a>{{ profile.username }}</a>
+        <a>{{ profile.name }}</a>
       </li>
       <li>
         <a>{{ profile.github }}</a>
@@ -30,15 +30,15 @@
   <container>
     <div>
       <h1>Certificates</h1>
+      {% for certificate in certificates %}
       <ul>
-        {% for certificate in profile.certificate_set.all %}
-        <li>{{ certificate.name }} - {{ certificate.certifying_institution }} </li>
-        {{% endfor %}}
+        <li>{{ certificate.name }} - {{ institutions.certifying_institution }} </li>
       </ul>
+      {% endfor %}
     </div>
 
     <div>
-      {% for project in profile.project_set.all %}
+      {% for project in projects %}
       <div>
         <h1>{{ project.name }}</h1>
         <p>{{ project.description }}</p>
@@ -47,7 +47,6 @@
         <a href="{{ project.link }}">Repositório</a>
       </div>
       {% endfor %}
-
     </div>
 
     <div>

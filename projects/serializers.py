@@ -22,7 +22,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 class CertifyingInstitutionSerializer(serializers.ModelSerializer):
     class Meta:
         model = CertifyingInstitution
-        fields = "__all__"
+        fields = ["url", "certificates", "name", "id"]
         many = True
 
     def create(self, validated_data):
