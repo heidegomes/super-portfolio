@@ -15,7 +15,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.shortcuts import render
 
 
-class ProfileViewSet(viewsets.ModelViewSet):
+class ProfilesViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
@@ -32,7 +32,7 @@ class ProfileViewSet(viewsets.ModelViewSet):
         return super().retrieve(request, *args, **kwargs)
 
 
-class ProjectsListViewSet(viewsets.ModelViewSet):
+class ProjectsViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
@@ -42,6 +42,6 @@ class CertifyingInstitutionViewSet(viewsets.ModelViewSet):
     serializer_class = CertifyingInstitutionSerializer
 
 
-class Certificate(viewsets.ModelViewSet):
+class CertificateViewSet(viewsets.ModelViewSet):
     queryset = Certificate.objects.all()
     serializer_class = CertificateSerializer
