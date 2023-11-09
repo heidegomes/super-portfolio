@@ -32,7 +32,7 @@
       <h1>Certificates</h1>
       {% for certificate in certificates %}
       <ul>
-        <li>{{ certificate.name }} - {{ institutions.certifying_institution }} </li>
+        <li>{{ certificate.name }} - {{ certificate.certifying_institution }} </li>
       </ul>
       {% endfor %}
     </div>
