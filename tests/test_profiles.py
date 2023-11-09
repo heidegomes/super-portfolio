@@ -101,7 +101,6 @@ def test_profile_template_without_authentication(client, profile_seed):
 
     assert response.status_code == 200
     assertTemplateUsed(response, "profile_detail.html")
-    print("#######", response)
     assertContains(response, profile_seed.name)
     assertContains(response, profile_seed.bio)
 
