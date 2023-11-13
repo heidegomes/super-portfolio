@@ -7,53 +7,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <title>Detalhes dos Perfis</title>
+  <title>Heide Gomes Casagrande</title>
 </head>
 
 
-<header class="header">
-  <nav class="nav">
-    <ul class="header-links">
-      <li>
-        <a>{{ profile.name }}</a>
-      </li>
-      <li>
-        <a>{{ profile.github }}</a>
-      </li>
-      <li>
-        <a>{{ profile.linkedin }}</a>
-      </li>
-  </nav>
+<header class="profile-infos-container">
+  <a class="profile-infos" id="profile-name">{{ profile.name }}</a>
+  <a class="profile-infos" id="profile-github" href="{{ profile.github }}"><img src="/static/img/github-icon-branco.png"
+      alt="github" style="width:42px;height:42px"></a>
+  <a class="profile-infos" id="profile-linkedin" href="{{ profile.linkedin }}"><img
+      src="/static/img/linkedin-icon-circular.png" alt="linkedin" style="width:43px;height:43px"></a>
 </header>
 
 <body>
-  <container>
-    <div>
-      <h1>Certificates</h1>
+  <container class="main-container">
+    <div class="certificates-container">
+      <h1 class="section-title">Certificados</h1>
       {% for certificate in certificates %}
-      <ul>
-        <li>{{ certificate.name }} - {{ certificate.certifying_institution }} </li>
-      </ul>
-      {% endfor %}
-    </div>
-
-    <div>
-      {% for project in projects %}
-      <div>
-        <h1>{{ project.name }}</h1>
-        <p>{{ project.description }}</p>
-        <p>{{ project.keyword }}</p>
-        <p>{{ project.key_skill }}</p>
-        <a href="{{ project.link }}">Repositório</a>
+      <div class="certificates-institution">
+        <p>{{ certificate.name }} - {{ certificate.certifying_institution }} </li>
       </div>
       {% endfor %}
     </div>
 
-    <div>
-      <h1>About me</h1>
-      <p>{{ profile.bio }}</p>
+    <div class="projects-container">
+      {% for project in projects %}
+      <div class="project-card">
+        <h1 class="project-title">{{ project.name }}</h1>
+        <p class="project-description">{{ project.description }}</p>
+        <p class="project-keyword">{{ project.keyword }}</p>
+        <p class="project-key-skill">{{ project.key_skill }}</p>
+        <a class="project-github-url" href="{{ project.link }}">Repositório</a>
+      </div>
+      {% endfor %}
     </div>
 
+    <div class="bio-container">
+      <h1>Sobre mim</h1>
+      <p class="profile-infos" id="profile-bio">{{ profile.bio }}</p>
+    </div>
   </container>
 </body>
 

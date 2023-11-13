@@ -40,12 +40,13 @@ body {
 }
 
 .main-container {
-    /* background-color: rgb(128, 153, 111); */
+    background-color: rgb(128, 153, 111);
     display: flex;
     padding: 20px;
 }
 
-.certificates-container, .bio-container {
+.certificates-container,
+.bio-container {
     align-items: center;
     display: flex;
     background-color: #F6FAFC;
@@ -104,7 +105,9 @@ body {
     margin-bottom: 10px;
 }
 
-.project-description, .project-github-url, .project-keyword {
+.project-description,
+.project-github-url,
+.project-keyword {
     font-size: 16px;
     margin-bottom: 10px;
     cursor: default;
@@ -138,4 +141,8 @@ body {
 
 #profile-bio {
     color: #000a18;
+}
+
+#profile-github {
+    background-image: "github-icon-branco.png";
 }

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from datetime import timedelta
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,10 +45,12 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "projects",
+    "static_autocollect",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -139,9 +142,28 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+MEDIA_URL = "/img/"
+MEDIA_ROOT = BASE_DIR / "static"
+
+if "test" in sys.argv or "pytest" in sys.argv:
+    MEDIA_URL = ""
+    MEDIA_ROOT = BASE_DIR / "tests"
+    STORAGE = {"default": "django.core.files.storage.FileSystemStorage"}
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static/img",
+]
+
+STATIC_TEST_DIR = os.path.join(BASE_DIR, "tests")
+
+REST_FRAMEWORK = {
+    "DEFAULT_DATETIME_FORMAT": "%Y-%m-%d",
+}
+
+WHITE_NOISE_AUTOREFRESH = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
