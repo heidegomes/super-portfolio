@@ -41,7 +41,7 @@ brew install mysql pkg-config
 2. Entre no diretório que acabou de criar e clone o projeto:
 ``` 
 cd projetos
-git clone git@github.com:tryber/sd-028-b-trybe-futebol-clube.git
+git clone git@github.com:tryber/python-028-python-projeto-super-portfolio.git
 ```
 
 3. Crie o ambiente virtual
