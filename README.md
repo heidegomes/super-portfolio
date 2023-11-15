@@ -10,6 +10,7 @@
 - DRF (Django Rest Framework);
 - MySQL;
 - Docker;
+- JWT.
 
 ## Instalação do projeto
 
