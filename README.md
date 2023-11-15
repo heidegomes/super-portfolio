@@ -72,14 +72,14 @@ docker run -d -p 3306:3306 --name=super-portfolio-mysql-container -e MYSQL_ROOT_
 
 7. Entre no diretório do projeto e rode o serviço com o comando:
 
-    ```bash
-    python3 manage.py runserver
-    ```
+  ```bash
+  python3 manage.py runserver
+  ```
     
 8. Crie as migrações:
    
-    ```bash
-    python3 manage.py makemigrations
-    ```
+  ```bash
+  python3 manage.py makemigrations
+  ```
 
    
