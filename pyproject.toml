@@ -23,6 +23,7 @@ dependencies = [
     "mysqlclient==2.2.0",
     "Pillow==10.0.0",
     "whitenoise==6.5.0",
+    "gunicorn==21.2.0",
 ]
 
 [tool.pytest.ini_options]
@@ -61,7 +62,6 @@ line_length = 79
 
 [project.optional-dependencies]
 test = [
-    "pytest-dependency@git+https://github.com/betrybe/pytest-dependency@984f9d7d083870d091e8862a9b9c33fdf815b8d9",
     "faker==18.9.0",
     "pytest==7.3.1",
     "pytest-cov==4.1.0",
@@ -91,4 +91,5 @@ alldev = [
     "platformdirs==3.5.1",
     "pycodestyle==2.10.0",
     "pyflakes==3.0.1",
+    "django-static-autocollect==0.1"
 ]
